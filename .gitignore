@@ -9,6 +9,8 @@
 .idea/dictionaries
 .idea
 target
+logs
+log
 
 
 # Sensitive or high-churn files:

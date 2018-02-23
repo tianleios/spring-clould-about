@@ -17,14 +17,8 @@ public class Swagger2Controller {
     //    http://localhost:8080/swagger-ui.html
     @ApiOperation(value = "swagger 接口", notes = "这是注释")
     @ApiImplicitParams(
-
-            @ApiImplicitParam(
-                    name = "name",
-                    value = "字段的描述",
-                    defaultValue = "tianlei",
-                    required = true,
-                    dataType = "String"
-                    )
+            @ApiImplicitParam(name = "name", value = "字段的描述", defaultValue = "tianlei",required = true, dataType = "String"
+            )
     )
     @GetMapping("/swagger")
     public String swagger(String name) {

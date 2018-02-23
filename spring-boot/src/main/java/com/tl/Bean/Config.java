@@ -2,6 +2,7 @@ package com.tl.bean;
 
 import com.tl.domain.User;
 import org.springframework.context.annotation.Bean;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 
 //@ImportResource 可以导入xml
@@ -23,6 +24,11 @@ public class Config {
         masterUser.setId(1L);
         return masterUser;
 
+    }
+
+    @Bean
+    public MethodValidationPostProcessor methodValidationPostProcessor() {
+        return new MethodValidationPostProcessor();
     }
 
 }
