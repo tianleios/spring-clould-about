@@ -1,4 +1,4 @@
-package com.tl.bean;
+package com.tl.config;
 
 import com.tl.domain.User;
 import org.springframework.context.annotation.Bean;
