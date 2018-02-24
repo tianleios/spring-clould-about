@@ -1,0 +1,56 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v1.5.10.RELEASE)
+
+10:37:00.696 INFO  org.springframework.boot.StartupInfoLogger 48 logStarting - Starting Application v1.0 on tl.local with PID 1570 (/Users/tianlei/IdeaProjects/spring-clould-about/spring-boot/target/tl-1.0.jar started by tianlei in /Users/tianlei/IdeaProjects/spring-clould-about/spring-boot)
+10:37:00.703 INFO  org.springframework.boot.SpringApplication 597 logStartupProfileInfo - The following profiles are active: test
+10:37:00.805 INFO  org.springframework.context.support.AbstractApplicationContext 583 prepareRefresh - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@25bbe1b6: startup date [Sat Feb 24 10:37:00 CST 2018]; root of context hierarchy
+10:37:01.126 INFO  org.hibernate.validator.internal.util.Version 30 <clinit> - HV000001: Hibernate Validator 5.3.6.Final
+10:37:02.442 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327 postProcessAfterInitialization - Bean 'com.tl.config.Config' of type [com.tl.config.Config] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:37:03.421 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer 89 initialize - Tomcat initialized with port(s): 8080 (http)
+10:37:03.437 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Starting service [Tomcat]
+10:37:03.439 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Starting Servlet Engine: Apache Tomcat/8.5.27
+10:37:03.576 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Initializing Spring embedded WebApplicationContext
+10:37:03.576 INFO  org.springframework.boot.context.embedded.EmbeddedWebApplicationContext 276 prepareEmbeddedWebApplicationContext - Root WebApplicationContext: initialization completed in 2771 ms
+10:37:03.964 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean 190 onStartup - Mapping servlet: 'dispatcherServlet' to [/]
+10:37:03.970 INFO  org.springframework.boot.web.servlet.AbstractFilterRegistrationBean 258 configure - Mapping filter: 'characterEncodingFilter' to: [/*]
+10:37:03.971 INFO  org.springframework.boot.web.servlet.AbstractFilterRegistrationBean 258 configure - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+10:37:03.971 INFO  org.springframework.boot.web.servlet.AbstractFilterRegistrationBean 258 configure - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+10:37:03.971 INFO  org.springframework.boot.web.servlet.AbstractFilterRegistrationBean 258 configure - Mapping filter: 'requestContextFilter' to: [/*]
+10:37:04.914 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/test/get],methods=[GET]}" onto public java.lang.String com.tl.controller.TestController.getTest()
+10:37:04.917 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/test/post],methods=[POST]}" onto public java.util.Map com.tl.controller.TestController.getTest(java.lang.String)
+10:37:04.919 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/config/display],methods=[GET]}" onto public java.lang.String com.tl.controller.ConfigController.autorInfo()
+10:37:04.920 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/api/swagger],methods=[GET]}" onto public java.lang.String com.tl.controller.Swagger2Controller.swagger(java.lang.String)
+10:37:04.921 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/users/validation],methods=[GET]}" onto public void com.tl.controller.UserController.test(java.lang.String)
+10:37:04.927 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+10:37:04.930 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+10:37:04.931 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+10:37:04.935 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+10:37:04.936 INFO  org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry 543 register - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+10:37:05.278 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping 69 initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:37:06.322 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter 534 initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@25bbe1b6: startup date [Sat Feb 24 10:37:00 CST 2018]; root of context hierarchy
+10:37:06.447 INFO  org.springframework.web.servlet.handler.AbstractUrlHandlerMapping 362 registerHandler - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:37:06.447 INFO  org.springframework.web.servlet.handler.AbstractUrlHandlerMapping 362 registerHandler - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:37:06.482 INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver 273 initExceptionHandlerAdviceCache - Detected @ExceptionHandler methods in globalExceptionHandler
+10:37:06.527 INFO  org.springframework.web.servlet.handler.AbstractUrlHandlerMapping 362 registerHandler - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:37:06.999 INFO  org.springframework.jmx.export.MBeanExporter 431 afterSingletonsInstantiated - Registering beans for JMX exposure on startup
+10:37:07.012 INFO  org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup 343 start - Starting beans in phase 2147483647
+10:37:07.013 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper 151 start - Context refreshed
+10:37:07.061 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper 154 start - Found 1 custom documentation plugin(s)
+10:37:07.149 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner 41 scan - Scanning for api listing references
+10:37:07.332 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Initializing ProtocolHandler ["http-nio-8080"]
+10:37:07.343 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Starting ProtocolHandler ["http-nio-8080"]
+10:37:07.372 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Using a shared selector for servlet write/read
+10:37:07.397 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer 201 start - Tomcat started on port(s): 8080 (http)
+10:37:07.405 INFO  org.springframework.boot.StartupInfoLogger 57 logStarted - Started Application in 7.407 seconds (JVM running for 8.369)
+10:37:08.524 INFO  org.apache.juli.logging.DirectJDKLog 180 log - Initializing Spring FrameworkServlet 'dispatcherServlet'
+10:37:08.524 INFO  org.springframework.web.servlet.FrameworkServlet 489 initServletBean - FrameworkServlet 'dispatcherServlet': initialization started
+10:37:08.553 INFO  org.springframework.web.servlet.FrameworkServlet 508 initServletBean - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+10:37:08.604 ERROR com.tl.controller.aopLog.WebLogAspect 44 doBefore - 测试error
+10:45:02.285 ERROR com.tl.controller.aopLog.WebLogAspect 44 doBefore - 测试error
+13:50:02.574 INFO  org.springframework.context.support.AbstractApplicationContext 984 doClose - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@25bbe1b6: startup date [Sat Feb 24 10:37:00 CST 2018]; root of context hierarchy
