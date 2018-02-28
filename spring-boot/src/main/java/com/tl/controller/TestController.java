@@ -24,6 +24,10 @@ public class TestController {
     @PostMapping(value = "/post")
     public Map getTest( String name){
 
+//        Runnable runnable = () -> {
+//
+//        };
+//        new Thread(runnable);
         Map map = new HashMap();
         map.put("name",name);
         return map;
