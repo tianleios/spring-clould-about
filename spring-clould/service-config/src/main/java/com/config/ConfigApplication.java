@@ -8,7 +8,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @SpringBootApplication
 public class ConfigApplication {
 
-//    启动后 访问：http://localhost:7070/tianlei/prod
+//  启动后 访问：http://localhost:7070/tianlei/prod
     public static void main(String[] args) {
 
         SpringApplication.run(ConfigApplication.class,args);
