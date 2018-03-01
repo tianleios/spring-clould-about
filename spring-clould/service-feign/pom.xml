@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>feign-service</artifactId>
+    <artifactId>service-feign</artifactId>
 
     <dependencies>
         <dependency>

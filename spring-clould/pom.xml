@@ -18,7 +18,7 @@
         <module>service-ribbon</module>
         <module>service-feign</module>
         <module>service-config</module>
-        <module>serviceconfigclient</module>
+        <module>service-config-client</module>
 
     </modules>
 
