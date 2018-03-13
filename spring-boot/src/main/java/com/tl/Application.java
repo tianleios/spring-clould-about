@@ -5,6 +5,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.tl.config.Config;
 import com.tl.config.Config2;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
@@ -25,6 +26,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 @SpringBootApplication
 @Import(value = {Config2.class, Config.class})
 
+@EnableRabbit
 public class Application {
 
     public static void main(String[] args) {
