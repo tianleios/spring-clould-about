@@ -8,8 +8,6 @@ public class Role {
 
     private String roleName;
 
-    private User user;
-
     private List<Permission> permissions;
 
     public Long getId() {
@@ -28,13 +26,6 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public List<Permission> getPermissions() {
         return permissions;

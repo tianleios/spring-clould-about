@@ -1,5 +1,6 @@
 package com.tianlei.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.tianlei.dao.UserMapper;
 import com.tianlei.domain.User;
@@ -32,8 +33,16 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> findUserPage(int start, int limit) {
 
-        PageHelper.startPage(start,limit);
+        //紧跟在startPage 后面的sql会进行分页
+        Page<User> page = PageHelper.startPage(start,limit);
         return this.userMapper.findAll();
+
+    }
+
+    @Override
+    public User findUserDetailByUserName(String userName) {
+
+        return this.userMapper.findUserDetailByUserName(userName);
 
     }
 }

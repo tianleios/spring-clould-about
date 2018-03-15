@@ -13,6 +13,6 @@ server:
   port: 4444
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-#  type-aliases-package: com.tianlei.dao
+  type-aliases-package: com.tianlei.dao
 
 

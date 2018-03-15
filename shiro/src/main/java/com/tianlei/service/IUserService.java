@@ -9,5 +9,7 @@ public interface IUserService {
     User findById(Long id);
     User save(User user);
     List<User> findUserPage(int start, int limit);
+    User findUserDetailByUserName(String userName);
+
 
 }

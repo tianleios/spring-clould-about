@@ -1,6 +1,7 @@
 package com.tianlei.config;
 
 import com.tianlei.domain.User;
+import com.tianlei.service.IUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -9,24 +10,12 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MyShiroRealm extends AuthorizingRealm {
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
 
-        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-
-
-//        for (int i = 0; i < 5; i++) {
-//
-//            //把用户所有的权限加进去
-//            simpleAuthorizationInfo.addStringPermission("");
-//        }
-        //把当前用户的所有权限查询出来
-        simpleAuthorizationInfo.addRole("admin");
-
-        return simpleAuthorizationInfo;
-    }
+    @Autowired
+    private IUserService userService;
 
     //用户认证
     @Override
@@ -38,15 +27,8 @@ public class MyShiroRealm extends AuthorizingRealm {
             return null;
         }
 
-        if (!name.equals("tianlei")) {
-            return null;
-        }
-
         //获取用户
-        User user = new User();
-        user.setId(1L);
-        user.setName(name);
-        user.setPassword(new String((char[]) authenticationToken.getCredentials()));
+        User user = this.userService.findUserDetailByUserName(name);
         if (user == null) {
             return null;
         }
@@ -55,4 +37,28 @@ public class MyShiroRealm extends AuthorizingRealm {
         return simpleAuthenticationInfo;
 
     }
+
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+
+        User user = this.userService.findUserDetailByUserName(principalCollection.getPrimaryPrincipal().toString());
+
+        user.getRoles().forEach(role -> {
+
+            simpleAuthorizationInfo.addRole(role.getRoleName());
+            role.getPermissions().forEach(permission -> {
+
+                simpleAuthorizationInfo.addStringPermission(permission.getPermissionName());
+
+            });
+
+        });
+
+        return simpleAuthorizationInfo;
+
+    }
+
+
 }

@@ -48,4 +48,11 @@ public class UserServiceImplTest {
         this.userService.findUserPage(1,1);
 
     }
+
+    @Test
+    public void findUserDetailByUserName() {
+
+       User user = this.userService.findUserDetailByUserName("tianlei");
+
+    }
 }

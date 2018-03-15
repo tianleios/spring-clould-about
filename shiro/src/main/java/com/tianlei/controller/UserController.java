@@ -3,6 +3,7 @@ package com.tianlei.controller;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @RequiresAuthentication //需要认证过之后
-//    @RequiresRoles("admin") //需要某个角色
+    @RequiresRoles("admin") //需要某个角色
 //    @RequiresPermissions(value = {""}) //需要某种权限
 //    @RequiresGuest
 //    @RequiresUser

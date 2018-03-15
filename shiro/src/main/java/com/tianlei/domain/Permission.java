@@ -4,9 +4,7 @@ public class Permission {
 
 
     private Long id;
-    private String permission;
-
-    private Role role;
+    private String permissionName;
 
     public Long getId() {
         return id;
@@ -16,19 +14,11 @@ public class Permission {
         this.id = id;
     }
 
-    public String getPermission() {
-        return permission;
+    public String getPermissionName() {
+        return permissionName;
     }
 
-    public void setPermission(String permission) {
-        this.permission = permission;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
     }
 }
