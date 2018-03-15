@@ -5,7 +5,7 @@ import com.netflix.zuul.context.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Filter extends ZuulFilter {
+public class  Filter extends ZuulFilter {
 
 //    pre：可以在请求被路由之前调用
 //    routing：在路由请求时候被调用
