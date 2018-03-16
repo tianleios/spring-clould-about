@@ -8,6 +8,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /*保证，服务有统一的入口
 * */
+//默认集成了断路器
 @SpringBootApplication
 @EnableZuulProxy
 @EnableEurekaClient
