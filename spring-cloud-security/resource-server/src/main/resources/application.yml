@@ -8,15 +8,24 @@ spring:
 server:
   port: 8083
 
+security:
+  oauth2:
+    resource:
+     filter-order: 3
+#     id: ${spring.application.name}
+#     user-info-uri: http://localhost:8082/user
+  user:
+    password: user
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
 
-security:
-  oauth2:
-    resource:
-      id: resource-service
-      user-info-uri: http://localhost:8081/auth-service/user
-      prefer-token-info: false
+#security:
+#  oauth2:
+#    resource:
+#      id: resource-service
+#      user-info-uri: http://localhost:8081/auth-service/user
+#      prefer-token-info: false
+

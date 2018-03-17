@@ -8,10 +8,10 @@ spring:
 server:
   port: 8082
 
-security:
-  oauth2:
-    resource:
-     filter-order: 3
+#security:
+#  oauth2:
+#    resource:
+#     filter-order: 3
 #  user:
 #    password: user
 

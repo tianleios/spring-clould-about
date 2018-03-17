@@ -13,8 +13,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-
     @Bean
     @Override
     protected UserDetailsService userDetailsService(){
@@ -34,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/oauth/*").permitAll();
         // @formatter:on
     }
-
 
 
 }
