@@ -1,8 +1,21 @@
 spring:
   application:
-    name: auth-server
+    name: auth-service
+  redis:
+    host: localhost
+    port: 6379
+
 server:
   port: 8082
+
 security:
-  basic:
-    enabled: false
+  oauth2:
+    resource:
+     filter-order: 3
+#  user:
+#    password: user
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/

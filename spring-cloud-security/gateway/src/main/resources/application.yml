@@ -4,27 +4,26 @@ spring:
 server:
   port: 8081
 
-
 zuul:
   routes:
-    uaa:
-      path: /uaa/**
+    auth-service:
+      path: /auth-service/**
       sensitiveHeaders:
-      serviceId: auth-server
-    order:
-      path: /order/**
+      serviceId: auth-service
+    resource-service:
+      path: /resource-service/**
       sensitiveHeaders:
-      serviceId: order-service
-add-proxy-headers: true
+      serviceId: resource-service
+  add-proxy-headers: true
 
 security:
   oauth2:
     client:
-        access-token-uri: http://localhost:8080/uaa/oauth/token
-        user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
+        access-token-uri: http://localhost:8081/auth-service/oauth/token
+        user-authorization-uri: http://localhost:8081/auth-service/oauth/authorize
         client-id: webapp
     resource:
-        user-info-uri: http://localhost:8080/uaa/user
+        user-info-uri: http://localhost:8080/auth-service/user
         prefer-token-info: false
 eureka:
   client:

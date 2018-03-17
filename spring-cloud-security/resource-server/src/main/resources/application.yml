@@ -1,12 +1,22 @@
 
-
 spring:
   application:
-    name: resource-server
+    name: resource-service
+  redis:
+    host: localhost
+    port: 6379
 server:
   port: 8083
+
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
+
+security:
+  oauth2:
+    resource:
+      id: resource-service
+      user-info-uri: http://localhost:8081/auth-service/user
+      prefer-token-info: false

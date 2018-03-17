@@ -8,7 +8,7 @@ public class MybatisPlayground {
 
 
         SqlSession sqlSession = null;
-        sqlSession.s
+//        sqlSession.s
 
     }
 }
