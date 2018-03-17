@@ -3,6 +3,7 @@ package com.tl.controller;
 import com.tl.config.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,7 @@ public class ConfigController {
     Properties properties;
 
     public String test() {
+        ClassPathXmlApplicationContext obj  = null;
         return "test service";
     }
 

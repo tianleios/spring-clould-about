@@ -55,7 +55,7 @@
     </sql>
 
     <insert id="save" parameterType="com.tianlei.domain.User" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO t_user (name, password) VALUE (#{name}, #{password});
+        INSERT INTO t_user (name, password) VALUES (#{name}, #{password});
     </insert>
 
     <select id="findById" resultMap="baseResultMap">

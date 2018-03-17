@@ -15,6 +15,8 @@ import javax.validation.constraints.Size;
 @Validated
 @RestController
 @RequestMapping("/users")
+
+
 public class UserController {
 
 //    static Map<Long,User> users = Collections.synchronizedMap(new HashMap<Long, User>());
@@ -25,14 +27,14 @@ public class UserController {
     @Qualifier("masterUser2")
     User user;
 
+    
+    
     @Autowired
     IUserService userService;
 
     @GetMapping("/validation")
     public void test(@Size(min = 5,max = 10) @NotNull String name) {
         int a = 10;
-
-
 //        this.userService.findUserByName("name");
 //        this.userService.findUserByName("name000");
 
