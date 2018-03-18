@@ -1,7 +1,8 @@
 package com.security.config;
 
-import com.security.domain.User;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,19 +13,12 @@ import java.util.List;
 public class MyUserDetailsService implements UserDetailsService {
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = new User();
-        user.setUserName(s);
-        user.setPassword("password");
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("admin"));
+        User user = new User(username,"password",grantedAuthorities);
+        return user;
 
-        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-        user.getRoles().forEach(role -> {
-
-            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-
-        });
-
-        return new org.springframework.security.core.userdetails.User(user.getUserName(),user.getPassword(),authorities);
     }
 }

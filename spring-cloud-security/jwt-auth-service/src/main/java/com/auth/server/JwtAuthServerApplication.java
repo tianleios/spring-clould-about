@@ -8,11 +8,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAuthorizationServer
-public class AuthServerApplication {
+public class JwtAuthServerApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AuthServerApplication.class);
+        SpringApplication.run(JwtAuthServerApplication.class);
 
     }
 

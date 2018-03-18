@@ -1,30 +1,28 @@
 package com.security.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService(){
+    @Autowired
+    public void configureGloable(AuthenticationManagerBuilder managerBuilder) throws Exception {
 
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user_1").password("123456").authorities("USER").build());
-        manager.createUser(User.withUsername("user_2").password("123456").authorities("USER").build());
+        //这里可以进行认证配置， 类似于shiro realm 中 doGetAuthenticationInfo
+//        managerBuilder.inMemoryAuthentication()
+//                .withUser("user").password("password").roles("superAdmin");
 
-        return manager;
+        managerBuilder.userDetailsService(new MyUserDetailsService());
 
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -35,5 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/oauth/*").permitAll();
         // @formatter:on
+
+        http.userDetailsService(new MyUserDetailsService());
     }
 }
