@@ -8,23 +8,27 @@ zuul:
   routes:
     auth-service:
       path: /auth-service/**
-      sensitiveHeaders:
+#      sensitiveHeaders:
       serviceId: auth-service
     resource-service:
       path: /resource-service/**
-      sensitiveHeaders:
+#      sensitiveHeaders:
       serviceId: resource-service
-  add-proxy-headers: true
+#  add-proxy-headers: true
+
 
 security:
   oauth2:
     client:
         access-token-uri: http://localhost:8081/auth-service/oauth/token
         user-authorization-uri: http://localhost:8081/auth-service/oauth/authorize
-        client-id: webapp
+        client-id: client
+        client-secret: 123456
     resource:
-        user-info-uri: http://localhost:8080/auth-service/user
-        prefer-token-info: false
+      token-info-uri: http://localhost:8081/auth-service/oauth/token_key
+
+#        user-info-uri: http://localhost:8080/auth-service/user
+#        prefer-token-info: false
 eureka:
   client:
     serviceUrl:

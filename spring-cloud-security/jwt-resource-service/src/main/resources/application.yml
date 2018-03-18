@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: resource-service
+    name: jwt-resource-service
   redis:
     host: localhost
     port: 6379
