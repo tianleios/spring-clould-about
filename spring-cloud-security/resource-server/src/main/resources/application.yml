@@ -13,8 +13,11 @@ security:
     resource:
      filter-order: 3
      id: ${spring.application.name}
+#     user-info-uri: http://localhost:8082/user
+
   user:
     password: user
+
 
 eureka:
   client:

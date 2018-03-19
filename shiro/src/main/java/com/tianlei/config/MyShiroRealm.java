@@ -12,6 +12,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+// 相当于数据 DAO ???????
 public class MyShiroRealm extends AuthorizingRealm {
 
     @Autowired

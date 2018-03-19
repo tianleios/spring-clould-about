@@ -6,11 +6,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DomainUserDetailsService implements UserDetailsService {
+@Component
+public class MyUserDetailsService implements UserDetailsService {
 
     //加载用户角色和权限
     @Override

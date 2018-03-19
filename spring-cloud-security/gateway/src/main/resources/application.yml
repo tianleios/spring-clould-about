@@ -14,18 +14,21 @@ zuul:
       path: /resource-service/**
 #      sensitiveHeaders:
       serviceId: resource-service
+
 #  add-proxy-headers: true
 
 
 security:
   oauth2:
     client:
-        access-token-uri: http://localhost:8081/auth-service/oauth/token
-        user-authorization-uri: http://localhost:8081/auth-service/oauth/authorize
-        client-id: client
+        access-token-uri: http://localhost:8082/oauth/token
+        user-authorization-uri: http://localhost:8082/oauth/authorize
+        client-id: client_1
         client-secret: 123456
+        scope: select
     resource:
-      token-info-uri: http://localhost:8081/auth-service/oauth/token_key
+      user-info-uri: http://localhost:8082/user
+#      token-info-uri: http://localhost:8081/auth-service/oauth/token_key
 
 #        user-info-uri: http://localhost:8080/auth-service/user
 #        prefer-token-info: false
@@ -33,3 +36,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
+

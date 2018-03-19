@@ -6,11 +6,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ResourceApplication {
+public class JwtResourceApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(ResourceApplication.class);
+        SpringApplication.run(JwtResourceApplication.class);
 
     }
 }

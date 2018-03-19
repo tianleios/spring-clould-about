@@ -20,8 +20,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
 @EnableAuthorizationServer
+@Configuration
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
@@ -52,7 +52,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 .tokenStore(this.tokenStore())
+                .accessTokenConverter(this.jwtAccessTokenConverter())
                 .authenticationManager(authenticationManager);
+//        endpoints.userDetailsService(new MyUserDetailsService());
+
+//        endpoints.tokenStore(tokenStore()).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager);
+
     }
 
     @Override
@@ -73,6 +78,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
 
+        //应该换成 公钥加密 私钥解密
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter(){
             @Override
             public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
