@@ -1,0 +1,8 @@
+spring:
+  cache:
+    cache-names: 323
+  redis:
+    host: localhost
+    port: 6379
+
+

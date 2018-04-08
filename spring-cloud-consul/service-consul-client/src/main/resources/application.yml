@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: service-consul-client
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+
+
+
+
+     

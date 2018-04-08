@@ -1,0 +1,35 @@
+package com.thread;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class LockPlayground {
+
+
+    private Lock lock = new ReentrantLock();
+
+
+    public void test() {
+        //获取锁
+        lock.lock();
+
+        //解锁
+        lock.unlock();
+
+        if (lock.tryLock()) {
+            // 获取 锁 成功
+
+        } else  {
+            // 获取 锁 失败
+
+        }
+
+
+    }
+
+
+    public static void main(String[] args) {
+
+    }
+
+}
