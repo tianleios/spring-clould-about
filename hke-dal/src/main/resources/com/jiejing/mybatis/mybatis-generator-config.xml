@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- !!!! Driver Class Path !!!! -->
+    <classPathEntry
+            location="/usr/local/mysql-driver/mysql-connector-java-5.1.35.jar"/>
+
+
+    <context id="context" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- !!!! Database Configurations !!!! -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.0.0.7:3306/xiaomai?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- !!!! Model Configurations !!!! -->
+        <javaModelGenerator targetPackage="com.jiejing.model"
+                            targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- !!!! Mapper XML Configurations !!!! -->
+        <sqlMapGenerator targetPackage="com.jiejing.mybatis.mapper"
+                         targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- !!!! Mapper Interface Configurations !!!! -->
+        <javaClientGenerator targetPackage="com.jiejing.dao"
+                             targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- !!!! Table Configurations !!!! -->
+        <!--<table tableName="center_institution" />-->
+        <!--<table tableName="institution" />-->
+        <!--<table tableName="institution_admin" />-->
+        <!--<table tableName="institution_album" />-->
+        <!--<table tableName="institution_student_case" />-->
+        <!--<table tableName="institution_course" />-->
+        <!--<table tableName="institution_teacher" />-->
+        <!--<table tableName="institution_teacher_experience" />-->
+        <!--<table tableName="institution_student" />-->
+        <!--<table tableName="institution_student_course" />-->
+        <!--<table tableName="institution_student_report" />-->
+        <!--<table tableName="institution_broadcast" />-->
+        <!--<table tableName="institution_activity" />-->
+        <!--<table tableName="institution_applicant_record" />-->
+        <!--<table tableName="institution_member" />-->
+        <!--<table tableName="institution_modular_permission" />-->
+        <!--<table tableName="xm_user" />-->
+        <!--<table tableName="xm_user_family" />-->
+        <!--<table tableName="xm_video" />-->
+        <!--<table tableName="xm_video_album" />-->
+        <!--<table tableName="xm_album_mapping_video" />-->
+        <!--<table tableName="xm_advert" />-->
+        <!--<table tableName="xm_support_city" />-->
+        <!--<table tableName="xm_teacher" />-->
+        <!--<table tableName="index_video" />-->
+        <!--<table tableName="deal" />-->
+        <!--<table tableName="deal_product" />-->
+        <!--<table tableName="xm_user_asset" />-->
+        <!--<table tableName="xm_feedback" />-->
+        <!--<table tableName="xm_advert" />-->
+        <!--<table tableName="xm_sequence" />-->
+        <!--<table tableName="xm_admin" />-->
+        <!--<table tableName="xm_user_token" />-->
+        <!--<table tableName="xm_user_mapping_institution" />-->
+        <!--<table tableName="xm_version" />-->
+        <!--<table tableName="deal_alipay_record" />-->
+        <!--<table tableName="xm_config" />-->
+        <!--<table tableName="xm_family_mapping_institution" />-->
+        <!--<table tableName="auth_permission"/>-->
+        <!--<table tableName="auth_role"/>-->
+        <!--<table tableName="promo_code" />-->
+        <!--<table tableName="promo_code_fans" />-->
+        <!--<table tableName="xm_count" />-->
+        <!--<table tableName="xm_vip"/>-->
+        <!--<table tableName="xm_vip_mapping"/>-->
+        <!--<table tableName="institution_activity_mapping_user"/>-->
+        <!--<table tableName="xm_push_message"/>-->
+        <!--<table tableName="xm_account"/>-->
+        <!--<table tableName="xm_account_log"/>-->
+        <!--<table tableName="xm_user_favorite"/>-->
+        <!--<table tableName="xm_document"/>-->
+        <!--<table tableName="institution_material"/>-->
+        <!--<table tableName="index_model"/>-->
+        <!--<table tableName="index_node"/>-->
+        <!--<table tableName="index_layout"/>-->
+        <!--<table tableName="deal_iap_record" />-->
+        <!--<table tableName="institution_doc"/>-->
+        <!--<table tableName="institution_doc_attach"/>-->
+        <!--<table tableName="institution_advert"/>-->
+        <!--<table tableName="institution_course_type"/>-->
+        <!--<table tableName="student_sign_in"/>-->
+        <!--<table tableName="institution_contract"/>-->
+        <!--<table tableName="teacher_sign_in"/>-->
+        <!--<table tableName="institution_feedback"/>-->
+        <!--<table tableName="xm_video_comment"/>-->
+        <!--<table tableName="xm_video_comment_detail"/>-->
+        <!--<table tableName="institution_student_contract_course"/>-->
+        <!--<table tableName="institution_student_classhour"/>-->
+        <!--<table tableName="class_teacher"/>-->
+        <!--<table tableName="institution_homework"/>-->
+        <!--<table tableName="institution_video"/>-->
+        <!--<table tableName="push_message"/>-->
+        <!--<table tableName="institution_payment_log"/>-->
+        <!--<table tableName="student_feedback"/>-->
+        <!--<table tableName="qr_code"/>-->
+        <!--<table tableName="student_batch_log"/>-->
+        <!--<table tableName="data_operate_log"/>-->
+        <!--<table tableName="teacher_push_message"/>-->
+        <!--<table tableName="institution_admin_push_message"/>-->
+        <!--<table tableName="xm_constant_config"/>-->
+        <!--<table tableName="student_idempotent"/>-->
+        <!--<table tableName="institution_class_schedule"/>-->
+
+        <!--<table tableName="student_tag"/>-->
+        <!--<table tableName="student_tag_mapping"/>-->
+        <!--<table tableName="operate_log"/>-->
+        <!--<table tableName="institution_auth_permission"/>-->
+        <!--<table tableName="institution_auth_role"/>-->
+        <!--<table tableName="institution_user"/>-->
+        <!--<table tableName="teacher_idempotent"/>-->
+        <!--<table tableName="course_idempotent"/>-->
+        <!--<table tableName="institution_taste"/>-->
+        <!--<table tableName="institution_trial_log"/>-->
+        <!--<table tableName="inst_wechat"/>-->
+        <!--<table tableName="user_wechat"/>-->
+        <!--<table tableName="inst_wechat_msg_template"/>-->
+        <!--<table tableName="institution_auth_mapping"/>-->
+        <!--<table tableName="institution_homework_mapping_student"/>-->
+        <!--<table tableName="institution_message_config"/>-->
+        <!--<table tableName="institution_homework_mapping_student"/>-->
+        <!--<table tableName="inst_grade"/>-->
+        <!--<table tableName="inst_subject"/>-->
+        <!--<table tableName="institution_class_schedule_time"/>-->
+
+        <!--<table tableName="show_rich_applications"/>-->
+        <!--<table tableName="show_rich_applications_mapping"/>-->
+        <!--<table tableName="show_option_bargain"/>-->
+        <!--<table tableName="show_bargain_detail"/>-->
+        <!--<table tableName="show_option_join"/>-->
+        <!--<table tableName="show_join_detail"/>-->
+        <!--<table tableName="institution_deal"/>-->
+        <!--<table tableName="institution_payment_flow"/>-->
+        <!--<table tableName="institution_payment_record"/>-->
+        <!--<table tableName="institution_wallet"/>-->
+        <!--<table tableName="institution_payment_record"/>-->
+        <!--<table tableName="institution_wallet"/>-->
+        <!--<table tableName="inst_weekly_active"/>-->
+        <!--<table tableName="inst_teacher_weekly_active"/>-->
+        <!--<table tableName="institution_class_schedule_rule"/>-->
+        <!--<table tableName="institution_holiday"/>-->
+        <!--<table tableName="institution_bank_record"/>-->
+        <!--<table tableName="activity_feedback"/>-->
+        <!--<table tableName="institution_alipay_record"/>-->
+        <!--<table tableName="show_option_tangyuan"/>-->
+        <!--<table tableName="show_option_tangyuan_extra"/>-->
+        <!--<table tableName="class_schedule_period"/>-->
+        <!--<table tableName="crm_institution"/>-->
+        <!--<table tableName="crm_sale_schedule"/>-->
+        <!--<table tableName="crm_institution_contract"/>-->
+        <!--<table tableName="crm_institution_service_purchased"/>-->
+        <!--<table tableName="crm_contract_abutment"/>-->
+        <!--<table tableName="crm_sinst_contract_campus"/>-->
+        <!--<table tableName="crm_campus"/>-->
+        <!--<table tableName="institution_product"/>-->
+        <!--<table tableName="institution_product_course"/>-->
+        <!--<table tableName="institution_student_product"/>-->
+        <!--<table tableName="institution_message_stat"/>-->
+        <!--<table tableName="crm_operation_schedule"/>-->
+        <!--<table tableName="crm_inst_tag_type"/>-->
+        <!--<table tableName="crm_inst_tag_code"/>-->
+        <!--<table tableName="crm_inst_tag_mapping"/>-->
+        <!--<table tableName="crm_inst_compete_status"/>-->
+        <!--<table tableName="crm_inst_compete_product"/>-->
+        <!--<table tableName="crm_sale_schedule"/>-->
+        <!--<table tableName="crm_institution_abutment"/>-->
+        <!--<table tableName="crm_institution_account"/>-->
+        <!--<table tableName="crm_account_service"/>-->
+        <!--<table tableName="crm_institution_abutment"/>-->
+        <!--<table tableName="crm_institution_account"/>-->
+        <!--<table tableName="crm_account_service"/>-->
+        <!--<table tableName="crm_business_daily_report"/>-->
+        <!--<table tableName="institution_salary"/>-->
+        <!--<table tableName="institution_salary_config"/>-->
+        <table tableName="institution_salary_course"/>
+    </context>
+</generatorConfiguration>

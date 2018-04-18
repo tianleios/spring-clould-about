@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiejing.dao.InstitutionAuthMappingMapper">
+  <resultMap id="BaseResultMap" type="com.jiejing.model.InstitutionAuthMapping">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="inst_id" jdbcType="BIGINT" property="instId" />
+    <result column="permissions" jdbcType="VARCHAR" property="permissions" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+  </resultMap>
+</mapper>
