@@ -20,6 +20,9 @@
         <module>mongo</module>
         <module>excel</module>
         <module>spring-mvc</module>
+        <module>validation</module>
+        <module>bootHtmlAndAuth</module>
+        <module>kafka</module>
     </modules>
 
 
