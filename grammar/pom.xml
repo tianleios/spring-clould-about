@@ -23,6 +23,8 @@
         <module>validation</module>
         <module>bootHtmlAndAuth</module>
         <module>kafka</module>
+        <module>log</module>
+        <module>lifeCyle</module>
     </modules>
 
 
