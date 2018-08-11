@@ -1,0 +1,15 @@
+
+
+server:
+  port: 8888
+spring:
+  cloud:
+    consul:
+      config:
+        format: key_value
+        profile-separator: '::'
+  profiles:
+    active: dev
+#spring.cloud.consul.config.profile-separator=config
+
+

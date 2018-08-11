@@ -25,6 +25,9 @@
         <module>kafka</module>
         <module>log</module>
         <module>lifeCyle</module>
+        <module>elasticsearch</module>
+        <module>spark</module>
+        <module>consul</module>
     </modules>
 
 
