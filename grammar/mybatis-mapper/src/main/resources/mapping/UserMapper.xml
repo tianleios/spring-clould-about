@@ -9,10 +9,11 @@
         <result property="name" column="name"/>
         <result property="password" column="password"/>
     </resultMap>
-
-
-
-
-
+    <insert id="add" parameterType="com.tianlei.domain.User">
+        INSERT INTO user(name, password) VALUES ('tl','password')
+    </insert>
+    <insert id="addName" parameterType="string">
+        INSERT INTO user(name) VALUES (#{name})
+    </insert>
 
 </mapper>

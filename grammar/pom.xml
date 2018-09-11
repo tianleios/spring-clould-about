@@ -28,6 +28,9 @@
         <module>elasticsearch</module>
         <module>spark</module>
         <module>consul</module>
+        <module>dubbo01</module>
+        <module>dubboClient</module>
+        <module>spring</module>
     </modules>
 
 

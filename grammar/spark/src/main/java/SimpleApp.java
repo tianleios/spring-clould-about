@@ -4,6 +4,8 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructType;
 
+import java.util.stream.Collectors;
+
 public class SimpleApp {
 
     public static void main(String[] args) {
@@ -32,5 +34,8 @@ public class SimpleApp {
         dataset.createOrReplaceTempView("people");
         spark.sql("select * from people where age < 11").show();
         spark.stop();
+
+
+
     }
 }
