@@ -28,6 +28,51 @@ public class Sort {
     }
 
     @Test
+    public void quickSort() {
+        int[] arr = new int[]{1, 3453, 3, 5435, 2, 5643646};
+
+        quickSort(arr, 0, arr.length - 1);
+        printArr(arr);
+
+    }
+
+
+    public void quickSort(int[] arr, int left, int right) {
+
+        if (left < right) {
+            int p = quickSortExec(arr, left, right);
+            quickSort(arr, left, p - 1);
+            quickSort(arr, p + 1, right);
+        }
+    }
+
+
+    public int quickSortExec(int[] arr, int left, int right) {
+
+        int temp = arr[left];
+
+        while (left < right) {
+
+            while (left < right && arr[right] >= temp) {
+                right--;
+            }
+
+            arr[left] = arr[right];
+
+            ////////////////////////////////////////////
+            while (left < right && arr[left] <= temp) {
+                left++;
+            }
+
+            arr[right] = arr[left];
+
+        }
+        arr[left] = temp;
+        return left;
+
+    }
+
+    @Test
     public void maoPao() {
 
         int[] arr = new int[]{1, 5, 3, 5, 2, 8};
@@ -55,6 +100,18 @@ public class Sort {
         }
         System.out.println(max);
 
+    }
+
+
+    @Test
+    public void test() {
+        int a = 10;
+        change(a);
+        System.out.println(a);
+    }
+
+    public void change(int a) {
+        a = a - 1;
     }
 
 }
