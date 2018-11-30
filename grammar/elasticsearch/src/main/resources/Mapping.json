@@ -1,3 +1,66 @@
 {
-  ""
+  "mappings": {
+    "my-type": {
+      "properties": {
+        "studnetName": {
+          "type": "test",
+          "//": "使用自定义分析器",
+          "analyzer": "my-analyzer",
+          "//": "不指定 默认为analyzer",
+          "search_analyzer": "",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "//":"completion 类型 为前缀自动补全",
+        "my_suggest" : {
+          "type" : "completion",
+          "analyzer" : "my_analyzer",
+          "contexts": [
+            {
+              "name" : "my-name",
+              "//":"类型有2中 category geo",
+              "type" : "category",
+              "//":"字段名称",
+              "path" : "instId"
+
+            }
+          ]
+        }
+
+      }
+    }
+  },
+  "settings": {
+    "analysis": {
+      "char_filter": {
+        "//": "自定 char_filter",
+        "my_char_filter": {
+        }
+      },
+      "filter": {
+        "//": "自定义 tokenfilter",
+        "my-filter": {
+        }
+      },
+      "analyzer": {
+        "my-analyzer": {
+          "type": "custom",
+          "//": "自定 char_filter",
+          "char_filter": [
+            "my_char_filter"
+          ],
+          "tokenizer": "standard",
+          "filter": [
+            "my-filter",
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    }
+  }
 }
