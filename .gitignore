@@ -13,6 +13,7 @@ logs
 log
 *.iml
 /*.iml
+**/*.iml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
