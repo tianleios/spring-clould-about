@@ -23,6 +23,9 @@ public class PrintNumber {
 
 //        testIntterpt();
 
+//        lastVersion();
+
+
     }
 
     /**
@@ -120,14 +123,16 @@ public class PrintNumber {
     public static void print() {
 
         Object lock = new Object();
+        int num = 5;
 
         new Thread(() -> {
             try {
-                for (; ; ) {
+                for (int i = 0; i < num; i++) {
                     synchronized (lock) {
-                        lock.wait();
-                        System.out.println("b");
+                        System.out.println("a");
                         lock.notify();
+                        lock.wait();
+
                     }
                 }
             } catch (Exception e) {
@@ -137,16 +142,17 @@ public class PrintNumber {
 
         new Thread(() -> {
             try {
-                for (; ; ) {
+                for (int i = 0; i < num; i++) {
                     synchronized (lock) {
+                        System.out.println("b");
                         lock.notify();
-                        System.out.println("a");
                         lock.wait();
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }).start();
 
     }
@@ -162,5 +168,51 @@ public class PrintNumber {
         });
         t1.start();
         t1.interrupt();
+    }
+
+
+    //*****************************************************  感觉是最合理的  ************************************************//
+    private static Condition oddCondition = lock.newCondition();
+    private static Condition evenCondition = lock.newCondition();
+
+    public static void lastVersion() {
+
+        new Thread(() -> {
+
+            lock.lock();
+            while (a < 10) {
+
+                System.out.println("a" + a++);
+                oddCondition.signal();
+                try {
+                    evenCondition.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            lock.unlock();
+
+        }).start();
+
+
+        new Thread(() -> {
+
+            lock.lock();
+            while (a < 10) {
+
+                System.out.println("b" + a++);
+                evenCondition.signal();
+                try {
+                    oddCondition.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            lock.unlock();
+        }).start();
+
     }
 }

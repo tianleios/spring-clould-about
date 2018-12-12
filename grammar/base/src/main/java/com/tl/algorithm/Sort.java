@@ -2,6 +2,7 @@ package com.tl.algorithm;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -114,4 +115,16 @@ public class Sort {
         a = a - 1;
     }
 
+
+    @Test
+    public void ta() {
+
+        BigInteger b1 = new BigInteger("-3");
+
+        BigInteger b2 = new BigInteger("2");
+
+        System.out.println(b1.mod(b2).toString());
+
+
+    }
 }

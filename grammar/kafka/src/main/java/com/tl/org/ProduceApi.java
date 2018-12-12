@@ -2,59 +2,61 @@ package com.tl.org;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.*;
 
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 
 public class ProduceApi {
 
-    private static String address = "localhost:9092";
-    private static String topic = "streams-plaintext-input-tian";
+    private static String address = "localhost:9092,localhost:9093,localhost:9094";
+    private static String topic = "xmzj";
 
 
     public static void main(String[] args) {
 
 
-        consumer();
+//        consumer();
 
-//        Properties props = new Properties();
-//        props.put("bootstrap.servers", address);
-//        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-//        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-//
-//        // 集群中的所有实例保存日志成功，才进行应答
-//        props.put("acks", "all");
-////        "org.apache.kafka.common.serialization.StringSerializer"
-//
-//        Producer<String, String> producer = new KafkaProducer<>(props);
-//        for (int i = 0; i < 2; i++) {
-//            ProducerRecord record = new ProducerRecord<String, String>(
-//                    topic, Integer.toString(i), "tian lei le le");
-//            producer.send(record, new Callback() {
-//                @Override
-//                public void onCompletion(RecordMetadata metadata, Exception exception) {
-//
-//                    if (null == exception) {
-//                        //success
-//                         int a = 10;
-//                    } else {
-//                        //failure
-//                    }
-//
-//                }
-//            });
-//        }
-//        producer.close();
+        Properties props = new Properties();
+        props.put("bootstrap.servers", address);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        // 集群中的所有实例保存日志成功，才进行应答
+        props.put("acks", "all");
+//        "org.apache.kafka.common.serialization.StringSerializer"
+
+        Producer<String, String> producer = new KafkaProducer<>(props);
+        for (int i = 0; i < 2; i++) {
+            ProducerRecord record = new ProducerRecord<String, String>(
+                    topic, Integer.toString(i), "tian lei le le");
+            producer.send(record, new Callback() {
+                @Override
+                public void onCompletion(RecordMetadata metadata, Exception exception) {
+
+                    if (null == exception) {
+                        //success
+                         int a = 10;
+                    } else {
+                        //failure
+                    }
+
+                }
+            });
+        }
+        producer.close();
 
 //        consumer();
 
 
-//        CountDownLatch countDownLatch = new CountDownLatch(1);
-//        try {
-//            countDownLatch.await();
-//        } catch (Exception e) {
-//
-//        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        try {
+            countDownLatch.await();
+        } catch (Exception e) {
+
+        }
 
 
         System.out.println("end ----");

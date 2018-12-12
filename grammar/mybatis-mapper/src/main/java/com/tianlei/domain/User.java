@@ -2,22 +2,18 @@ package com.tianlei.domain;
 
 import lombok.Builder;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-
-@Table(name = "t_user")
+//@Table(name = "t_user")
 @Builder
 public class User {
 
-    @Id
+//    @Id
     private Long id;
 
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
-    @Column(name = "password")
+//    @Column(name = "password")
     private String password;
 
     //
