@@ -1,10 +1,8 @@
 package com.tl.lock;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -22,12 +20,19 @@ public class LockTest {
 
     public static void main(String[] args) throws Exception {
 
+//        LongAccumulator l = new LongAccumulator((left, right) -> {
+//            return left * right;
+//        }, 1);
+//        l.accumulate(2);
+//        l.accumulate(3);
+//        l.accumulate(4);
+//        System.out.println(l.get());
 
 //        countDownLatch();
-        cyclicBarrier();
+//        cyclicBarrier();
 //        semaphore();
 //        deadLock();
-//        reentrantLockTest();
+        reentrantLockTest();
 //        readWriteLock();
 //        lockCondition();
 
@@ -119,7 +124,7 @@ public class LockTest {
 
     public static void lockCondition() {
 
-       Condition condition = reentrantLock.newCondition();
+        Condition condition = reentrantLock.newCondition();
 
         new Thread(() -> {
 
@@ -344,6 +349,73 @@ public class LockTest {
 
                 }
             }
+
+        }).start();
+    }
+
+
+    @org.junit.Test
+    public void exchanger() {
+
+        Exchanger<String> exchanger = new Exchanger<>();
+
+        new Thread(() -> {
+            String name = Thread.currentThread().getName();
+            try {
+                String exchangeName = exchanger.exchange(name);
+                System.out.println(name + "-" + exchangeName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            String name = Thread.currentThread().getName();
+            try {
+                System.out.println("睡觉前");
+//                Thread.sleep(100);
+                System.out.println("睡觉后");
+                String exchangeName = exchanger.exchange(name);
+                System.out.println(name + "-" + exchangeName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+    }
+
+
+    @org.junit.Test
+    public void lockSupport() {
+
+        Thread t = new Thread(() -> {
+            System.out.println("before");
+            LockSupport.park();
+            System.out.println("after");
+        });
+
+        t.start();
+        try {
+            System.out.println("sleep - before");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("sleep - after");
+        } catch (Exception e) {
+        }
+        LockSupport.unpark(t);
+    }
+
+    @org.junit.Test
+    public void testAQS() {
+
+        reentrantLock.lock();
+
+        new Thread(() -> {
+            reentrantLock.lock();
+//            try {
+//                TimeUnit.SECONDS.sleep(10);
+//            } catch (InterruptedException e) {
+//            }
+            reentrantLock.lock();
 
         }).start();
     }

@@ -1,4 +1,4 @@
-package com.tl.lock;
+package com.tl.lock.printNumber;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -172,47 +172,56 @@ public class PrintNumber {
 
 
     //*****************************************************  感觉是最合理的  ************************************************//
-    private static Condition oddCondition = lock.newCondition();
-    private static Condition evenCondition = lock.newCondition();
 
-    public static void lastVersion() {
+    private Condition jCon = lock.newCondition();
+    private Condition oCon = lock.newCondition();
 
+    private void lastPrint() {
         new Thread(() -> {
 
             lock.lock();
-            while (a < 10) {
+            try {
 
-                System.out.println("a" + a++);
-                oddCondition.signal();
-                try {
-                    evenCondition.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
+            } finally {
 
             }
+            while (a < 10) {
 
-            lock.unlock();
+                System.out.println("A - " + a);
+                jCon.signal();
+                try {
+                    oCon.await();
+                } catch (Exception e) {
+
+                }
+            }
+
+
 
         }).start();
 
-
         new Thread(() -> {
 
             lock.lock();
             while (a < 10) {
 
-                System.out.println("b" + a++);
-                evenCondition.signal();
+                System.out.println("A - " + a);
+                jCon.signal();
                 try {
-                    oddCondition.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    oCon.await();
+                } catch (Exception e) {
+
                 }
             }
-            lock.unlock();
+
+
         }).start();
 
     }
+
+
+
+    //*****************************************************  感觉是最合理的  ************************************************//
+
+
 }

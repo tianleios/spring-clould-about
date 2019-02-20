@@ -8,6 +8,7 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="password" column="password"/>
+        <result property="dreamWhere" column="dream_where"/>
     </resultMap>
     <insert id="add" parameterType="com.tianlei.domain.User">
         INSERT INTO user(name, password) VALUES ('tl','password')
@@ -15,5 +16,17 @@
     <insert id="addName" parameterType="string">
         INSERT INTO user(name) VALUES (#{name})
     </insert>
+
+    <!--<select id="selectOne" resultMap="BaseResultMap">-->
+        <!--select * from user limit 1;-->
+    <!--</select>-->
+
+    <select id="selectOne" resultType="com.tianlei.domain.User">
+        select * from user limit 1;
+    </select>
+
+    <select id="selectList" resultType="com.tianlei.domain.User">
+        select * from user;
+    </select>
 
 </mapper>

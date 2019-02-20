@@ -15,12 +15,15 @@ public class DynamicProxyTest {
         ClassLoader classLoader = dynamicProxy.getClass().getClassLoader();
         Subject subject = (Subject) Proxy.newProxyInstance(classLoader, new Class[]{Subject.class}, dynamicProxy);
         subject.visit();
+        subject.test();
+
 
     }
 
     //主题
     interface Subject {
         void visit();
+        void test();
     }
 
     //真实对象
@@ -28,6 +31,12 @@ public class DynamicProxyTest {
         @Override
         public void visit() {
             System.out.println("i am boss");
+        }
+
+        @Override
+        public void test() {
+            System.out.println("i am test");
+            this.visit();
         }
     }
 

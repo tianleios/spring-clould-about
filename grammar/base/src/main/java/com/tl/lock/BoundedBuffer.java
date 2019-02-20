@@ -87,7 +87,6 @@ public class BoundedBuffer {
 //        }).start();
 
 
-
         BoundedBuffer boundedBuffer = new BoundedBuffer();
 
 
@@ -119,5 +118,35 @@ public class BoundedBuffer {
 
 
     }
+
+
+    public void rePut(Object x) throws InterruptedException {
+
+        lock.lock();
+        try {
+            while (items.length >= 100) {
+                notFull.await();
+            }
+
+            notEmpty.signalAll();
+        } finally {
+            lock.unlock();
+        }
+
+    }
+
+    public Object reTake() throws InterruptedException {
+        lock.lock();
+        try {
+            while (items.length <= 0) {
+                notEmpty.await();
+            }
+            notFull.signalAll();
+            return items[items.length - 1];
+        } finally {
+            lock.unlock();
+        }
+    }
+
 
 }

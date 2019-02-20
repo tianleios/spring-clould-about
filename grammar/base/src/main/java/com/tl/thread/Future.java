@@ -1,4 +1,4 @@
-package com.thread;
+package com.tl.thread;
 
 import java.util.Arrays;
 import java.util.List;

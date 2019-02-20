@@ -1,10 +1,9 @@
 package com.tianlei.domain;
 
-import lombok.Builder;
-
-
 //@Table(name = "t_user")
-@Builder
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class User {
 
 //    @Id
@@ -15,6 +14,8 @@ public class User {
 
 //    @Column(name = "password")
     private String password;
+
+    private String dreamWhere;
 
     //
     public Long getId() {
@@ -40,5 +41,23 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDreamWhere() {
+        return dreamWhere;
+    }
+
+    public void setDreamWhere(String dreamWhere) {
+        this.dreamWhere = dreamWhere;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", dreamWhere='" + dreamWhere + '\'' +
+                '}';
     }
 }

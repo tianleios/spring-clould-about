@@ -1,10 +1,11 @@
 package com.tianlei.advice;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+
+import java.text.SimpleDateFormat;
 
 /**
  * Created by tianlei on 2018/9/29
@@ -18,6 +19,13 @@ public class MyControllerAdvice {
     @ResponseBody
     public String myHandler(RuntimeException e) {
         return "myHandler";
+    }
+
+    @InitBinder
+    public void bind(WebDataBinder webDataBinder) {
+
+        CustomDateEditor customDateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true);
+        webDataBinder.registerCustomEditor(Long.class, customDateEditor);
     }
 
 }

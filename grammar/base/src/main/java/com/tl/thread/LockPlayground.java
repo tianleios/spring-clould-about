@@ -1,4 +1,4 @@
-package com.thread;
+package com.tl.thread;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -19,7 +19,7 @@ public class LockPlayground {
         if (lock.tryLock()) {
             // 获取 锁 成功
 
-        } else  {
+        } else {
             // 获取 锁 失败
 
         }
@@ -29,6 +29,27 @@ public class LockPlayground {
 
 
     public static void main(String[] args) {
+
+        Object obj1 = new Object();
+        Object obj2 = new Object();
+
+
+        new Thread(() -> {
+            synchronized (obj1) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                }
+            }
+        }).start();
+
+//        new Thread(() -> {
+//            synchronized (obj2) {
+//                synchronized (obj1) {
+//
+//                }
+//            }
+//        }).start();
 
     }
 

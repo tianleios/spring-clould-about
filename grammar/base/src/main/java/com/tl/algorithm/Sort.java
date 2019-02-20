@@ -76,8 +76,29 @@ public class Sort {
     @Test
     public void maoPao() {
 
-        int[] arr = new int[]{1, 5, 3, 5, 2, 8};
-        for (int i = 0; i < arr.length; i++) {
+        System.out.println(String.format("%.2f", 3.123));
+
+//        int[] arr = new int[]{1, 5, 3, 5, 2, 8};
+//
+//        for (int i = 0; i < arr.length - 1; i++) {
+//            for (int j = 0; j < arr.length - i - 1; j++) {
+//                if (arr[j] > arr[j + 1]) {
+//                    int c = arr[j];
+//                    arr[j] = arr[j + 1];
+//                    arr[j + 1] = c;
+//                }
+//
+//            }
+//        }
+//        printArr(arr);
+
+    }
+
+
+    @Test
+    public void mp2() {
+        int[] arr = {1, 2, 3, 4, 1, 2};
+        for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int c = arr[j];
@@ -85,10 +106,8 @@ public class Sort {
                     arr[j + 1] = c;
                 }
             }
-
         }
         printArr(arr);
-
     }
 
     @Test
@@ -127,4 +146,96 @@ public class Sort {
 
 
     }
+
+
+    //***************   quick sort
+    @Test
+    public void qsTest() {
+        int[] arr = {1, 4, 3, 2, 1, 1, 10, 100};
+        qs(arr, 0, arr.length - 1);
+        printArr(arr);
+
+    }
+
+    public void qs(int[] arr, int left, int right) {
+
+        if (left < right) {
+            int z = qsz(arr, left, right);
+            qs(arr, left, z - 1);
+            qs(arr, z + 1, right);
+
+        }
+
+
+    }
+
+    // 2 3 1 4
+    public int qsz(int[] arr, int left, int right) {
+
+
+        int temp = arr[left];
+
+
+        while (left < right) {
+            while (left < right && arr[right] > temp) {
+
+                right--;
+            }
+
+            arr[left] = arr[right];
+
+            while (left < right && arr[left] <= temp) {
+                left++;
+            }
+
+            arr[right] = arr[left];
+        }
+
+        arr[left] = temp;
+
+        return left;
+
+    }
+
+
+    //--//
+    public void qs2(int[] arr, int left, int right) {
+
+        if (left < right) {
+
+            int p = qsz2(arr, left, right);
+            qs2(arr, left, p - 1);
+            qs2(arr, p + 1, right);
+
+        }
+
+    }
+
+    public int qsz2(int[] arr, int left, int right) {
+
+        int temp = arr[left];
+
+        while (left < right) {
+
+            while (left < right && arr[right] > temp) {
+                right --;
+            }
+
+            arr[left] = arr[right];
+
+            while (left < right && arr[left] <= temp) {
+                left ++;
+            }
+
+            arr[right] = arr[left];
+
+        }
+
+        arr[left] = temp;
+
+        return left;
+
+    }
+
 }
+

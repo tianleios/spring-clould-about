@@ -3,10 +3,11 @@ package com.tl.org;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.*;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Properties;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class ProduceApi {
 
@@ -29,9 +30,9 @@ public class ProduceApi {
 //        "org.apache.kafka.common.serialization.StringSerializer"
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 100; i++) {
             ProducerRecord record = new ProducerRecord<String, String>(
-                    topic, Integer.toString(i), "tian lei le le");
+                    topic, Integer.toString(i), "tian lei le le 1");
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception exception) {
@@ -47,24 +48,13 @@ public class ProduceApi {
             });
         }
         producer.close();
-
-//        consumer();
-
-
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        try {
-            countDownLatch.await();
-        } catch (Exception e) {
-
-        }
-
-
         System.out.println("end ----");
 
     }
 
 
-    public static void consumer() {
+    @Test
+    public  void consumer() {
 
         Properties props = new Properties();
         props.put("bootstrap.servers", address);
@@ -92,9 +82,17 @@ public class ProduceApi {
         //必须订阅 一个 topic
         kafkaConsumer.subscribe(Arrays.asList(topic));
 
+
+
         //
         while (true) {
+            try {
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+
+            }
             ConsumerRecords<String, String> records = kafkaConsumer.poll(100);
+
 
         }
 
