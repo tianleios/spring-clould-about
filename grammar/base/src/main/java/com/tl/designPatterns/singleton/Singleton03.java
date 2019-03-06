@@ -5,7 +5,7 @@ package com.tl.designPatterns.singleton;
  */
 public class Singleton03 {
 
-    private static Singleton03 instance;
+    private static volatile Singleton03 instance;
 
     private Singleton03() {
 

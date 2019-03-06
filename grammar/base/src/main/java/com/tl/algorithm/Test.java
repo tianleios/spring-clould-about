@@ -31,10 +31,39 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Test test = new Test();
-        if (test.value == 1) {
+        System.out.println("begin ");
+        new Thread(() -> {
+            int i = 0;
+            while (true) {
+                try {
+                    System.out.println("123124312");
+                    Thread.sleep(1000);
+                    i++;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        System.out.println(12444);
 
-        }
+    }
 
+
+    @org.junit.Test
+    public void testThreadSleep() throws InterruptedException {
+        System.out.println("begin ");
+        new Thread(() -> {
+            int i = 0;
+            while (true) {
+                try {
+                    System.out.println("123124312");
+//                    Thread.sleep(1000);
+                    i++;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        System.out.println(12444);
     }
 }

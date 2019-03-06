@@ -11,6 +11,15 @@ public class IpList {
 
     public static void main(String[] args) {
 
+
+        //1.
+
+
+
+        Character c = new Character('d');
+        System.out.println(c);
+
+
         BitSet bitSet = new BitSet();
         bitSet.set(0, true);
 

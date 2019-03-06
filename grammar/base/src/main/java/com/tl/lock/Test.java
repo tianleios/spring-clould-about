@@ -1,5 +1,9 @@
 package com.tl.lock;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Created by tianlei on 2018/11/28
  */
@@ -74,6 +78,13 @@ public class Test {
 
 
     public Test(int a) {
+
+
+        List<String> arr = new ArrayList<>();
+
+        Iterator<String> it = arr.iterator();
+
+        it.remove();
 
     }
 

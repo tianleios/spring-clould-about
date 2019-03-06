@@ -11,6 +11,7 @@ public class DynamicProxyTest {
 
     public static void main(String[] args) {
 
+
         DynamicProxy dynamicProxy = new DynamicProxy(new RealSubject());
         ClassLoader classLoader = dynamicProxy.getClass().getClassLoader();
         Subject subject = (Subject) Proxy.newProxyInstance(classLoader, new Class[]{Subject.class}, dynamicProxy);

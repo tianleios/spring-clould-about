@@ -152,7 +152,7 @@ public class Sort {
     @Test
     public void qsTest() {
         int[] arr = {1, 4, 3, 2, 1, 1, 10, 100};
-        qs(arr, 0, arr.length - 1);
+        qs2(arr, 0, arr.length - 1);
         printArr(arr);
 
     }
@@ -202,11 +202,9 @@ public class Sort {
     public void qs2(int[] arr, int left, int right) {
 
         if (left < right) {
-
             int p = qsz2(arr, left, right);
             qs2(arr, left, p - 1);
             qs2(arr, p + 1, right);
-
         }
 
     }
@@ -216,11 +214,9 @@ public class Sort {
         int temp = arr[left];
 
         while (left < right) {
-
             while (left < right && arr[right] > temp) {
                 right --;
             }
-
             arr[left] = arr[right];
 
             while (left < right && arr[left] <= temp) {
@@ -232,7 +228,6 @@ public class Sort {
         }
 
         arr[left] = temp;
-
         return left;
 
     }

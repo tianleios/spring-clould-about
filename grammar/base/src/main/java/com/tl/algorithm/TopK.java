@@ -13,13 +13,13 @@ public class TopK {
     @Test
     public void topKMin() {
         int[] arr = {1, 9, 3, 4, 7};
-        minK(arr, 4);
+        minK2(arr, 4);
     }
 
     @Test
     public void topKMax() {
         int[] arr = {1, 9, 3, 4, 7};
-        maxK(arr, 4);
+        maxK2(arr, 4);
     }
 
     //最大的几个数用小顶堆
@@ -67,9 +67,46 @@ public class TopK {
         queue.stream().forEach(System.out::print);
     }
 
+    /**
+     * 最大的值， 用最小堆
+     * @param arr
+     * @param k
+     */
+    public void maxK2(int[] arr, int k) {
 
-    @Test
-    public void classLoader() {
-        System.out.println(Thread.currentThread().getContextClassLoader());
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        for (int a : arr) {
+            if (queue.size() < k) {
+                queue.add(a);
+            } else {
+                if (a > queue.peek()) {
+                    queue.poll();
+                    queue.add(a);
+                }
+            }
+        }
+
+        printQueue(queue);
+
     }
+
+    public void minK2(int[] arr, int k) {
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
+        for (int a : arr) {
+            if (queue.size() < k) {
+                queue.add(a);
+            } else {
+                if (a < queue.peek()) {
+                    queue.poll();
+                    queue.add(a);
+                }
+            }
+        }
+        printQueue(queue);
+
+    }
+
+
 }

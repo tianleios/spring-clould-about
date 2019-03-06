@@ -30,6 +30,9 @@ public class AntMinStack {
     }
 
     public Integer min() {
+        if (stack.empty()) {
+            return null;
+        }
         return minStack.peek();
     }
 
@@ -37,15 +40,39 @@ public class AntMinStack {
 
         AntMinStack stack = new AntMinStack();
         for (int i = 10; i > 0; i--) {
-            stack.push(i);
-            System.out.println("push" + i + "min :" + stack.min());
+            stack.push2(i);
+            System.out.println("push-" + i + " min-" + stack.min());
         }
 
         for (int i = 0; i < 10; i++) {
-            System.out.println("pop" + "min: " + stack.min() + "value" +stack.pop() );
+            System.out.println("pop-" + "min: " + stack.min() + " value-" +stack.pop2() );
         }
 
     }
+
+
+    public void push2(Integer obj) {
+
+        stack.push(obj);
+        if (minStack.empty() || obj <= minStack.peek()) {
+            minStack.push(obj);
+        }
+
+    }
+
+    public Integer pop2() {
+        if (stack.empty()) {
+            return null;
+        }
+        Integer value = stack.pop();
+        if (value.equals(minStack.peek())) {
+            minStack.pop();
+        }
+        return value;
+    }
+
+
+
 
 
 }

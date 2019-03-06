@@ -29,4 +29,19 @@
         </dependency>
     </dependencies>
 
+
+    <!-- 上传jar 到私服测试 -->
+    <distributionManagement>
+        <repository>
+            <id>tianlei</id>
+            <name>tianlei</name>
+            <url>http://localhost:8081/repository/tianlei/</url>
+        </repository>
+        <!--<snapshotRepository>-->
+        <!--<id>maven-snapshots</id>-->
+        <!--<name>maven-snapshots</name>-->
+        <!--<url>http://localhost:8081/repository/maven-snapshots/</url>-->
+        <!--</snapshotRepository>-->
+    </distributionManagement>
+
 </project>
