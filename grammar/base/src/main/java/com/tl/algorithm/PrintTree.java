@@ -51,23 +51,22 @@ public class PrintTree {
     }
 
 
-//        public static void print(Node node) {
-//
-//        LinkedList<Node> linkedList = new LinkedList();
-//        linkedList.offer(node);
-//        while (linkedList.peek() != null) {
-//
-//            Node currentNode = linkedList.poll();
-//            System.out.println(currentNode.value);
-//            if (currentNode.left != null) {
-//                linkedList.offer(currentNode.left);
-//            }
-//
-//            if (currentNode.right != null) {
-//                linkedList.offer(currentNode.right);
-//            }
-//        }
-//
-//    }
+    public static void print2(Node node) {
+
+        LinkedList<Node> linkedList = new LinkedList<>();
+        linkedList.push(node);
+        while (linkedList.peek() != null) {
+            Node currentNode = linkedList.poll();
+            System.out.println(currentNode.value);
+            if (currentNode.left != null) {
+                linkedList.push(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                linkedList.push(currentNode.right);
+            }
+        }
+
+    }
+
 
 }

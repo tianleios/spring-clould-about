@@ -21,7 +21,7 @@ public class Semaphore2 {
 //         返回值<0，说明获取同步状态失败
         @Override
         protected int tryAcquireShared(int arg) {
-            for (; ; ) {
+            for (;;) {
                 int state = this.getState();
                 if (state == 0) {
                     return -1;
@@ -30,7 +30,6 @@ public class Semaphore2 {
                     return state - 1;
                 }
             }
-
         }
 
         // -1 0 1

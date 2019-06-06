@@ -98,12 +98,14 @@ public class Sort {
     @Test
     public void mp2() {
         int[] arr = {1, 2, 3, 4, 1, 2};
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
+
+        for (int i = 0; i < arr.length - 1; i ++) {
+            for (int j = 0; j < arr.length - 1 - i; j ++) {
+
                 if (arr[j] > arr[j + 1]) {
-                    int c = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = c;
+                    int c = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = c;
                 }
             }
         }
@@ -202,8 +204,8 @@ public class Sort {
     public void qs2(int[] arr, int left, int right) {
 
         if (left < right) {
-            int p = qsz2(arr, left, right);
-            qs2(arr, left, p - 1);
+            int p = qsz(arr, left, right);
+            qs2(arr,left, p);
             qs2(arr, p + 1, right);
         }
 
@@ -214,22 +216,21 @@ public class Sort {
         int temp = arr[left];
 
         while (left < right) {
-            while (left < right && arr[right] > temp) {
+            if (left < right && arr[right] >= temp) {
                 right --;
             }
+
             arr[left] = arr[right];
 
-            while (left < right && arr[left] <= temp) {
+            if (left < right && arr[left] < temp) {
                 left ++;
             }
 
             arr[right] = arr[left];
-
         }
 
         arr[left] = temp;
         return left;
-
     }
 
 }

@@ -44,16 +44,16 @@ public class PrintLinkedList {
 
     }
 
-//    public static void print(Node head) {
-//
-//        if (head.next != null) {
-//            print(head.next);
-//        }
-//
-//        System.out.println(head.value);
-//
-//
-//    }
+    public static void print2(Node head) {
+
+        if (head.next != null) {
+            print2(head.next);
+        }
+
+        System.out.println(head.value);
+    }
+
+
 
 
 }

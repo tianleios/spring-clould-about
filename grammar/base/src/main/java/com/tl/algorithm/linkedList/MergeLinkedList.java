@@ -66,18 +66,20 @@ public class MergeLinkedList {
         Node head = new Node();
         Node last = head;
 
-        while (l1 != null && l2 != null ) {
+        while (l1 != null && l2 != null) {
 
-            if (l1.value <= l2.value) {
+            if (l1.value >= l2.value) {
                 last.next = l1;
                 l1 = l1.next;
+
             } else {
+
                 last.next = l2;
                 l2 = l2.next;
+
             }
 
             last = last.next;
-
         }
 
         if (l1 == null) {
@@ -89,5 +91,6 @@ public class MergeLinkedList {
         }
 
         return head.next;
+
     }
 }

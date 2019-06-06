@@ -1,9 +1,12 @@
 package com.tl.stream;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,7 +41,7 @@ public class Author {
     private static List<Author> create() {
         //
         Author author = new Author();
-        author.name = "tian";
+        author.name = null;
         author.age = 10;
         author.area = "zh";
         author.articles = new ArrayList<>();
@@ -68,6 +71,14 @@ public class Author {
         author22.articles.add(new Article(22L));
 
         return new ArrayList<>(Arrays.asList(author, author11, author21, author22));
+    }
+
+    @Test
+    public void test() {
+        List<Author> authors = create();
+        authors.stream().collect(Collectors.groupingBy(Author::getName, Collectors.mapping(Author::getAge, Collectors.toList())));
+
+
     }
 
     public static void main(String[] args) {

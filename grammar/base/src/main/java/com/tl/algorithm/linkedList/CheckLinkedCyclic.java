@@ -39,12 +39,12 @@ public class CheckLinkedCyclic {
             if (slow.equals(fast)) {
                 return true;
             }
+
             slow = slow.next;
             fast = fast.next.next;
         }
 
         return false;
-
     }
 
 
@@ -58,7 +58,7 @@ public class CheckLinkedCyclic {
 //        Node n5 = new Node();
 
         n1.next = n2;
-        n2.next = n1;
+        //n2.next = n1;
 //        n2.next = n3;
 //        n3.next = n4;
 //        n4.next = n5;
