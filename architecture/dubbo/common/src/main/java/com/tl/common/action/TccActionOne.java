@@ -1,4 +1,4 @@
-package io.seata.samples.tcc.springboot.dubbo.action;
+package com.tl.common.action;
 
 import io.seata.rm.tcc.api.BusinessActionContext;
 import io.seata.rm.tcc.api.BusinessActionContextParameter;

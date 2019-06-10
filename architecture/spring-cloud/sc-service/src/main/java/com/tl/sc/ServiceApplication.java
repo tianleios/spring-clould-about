@@ -1,20 +1,20 @@
-package com.tl.sentinel;
+package com.tl.sc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author tianlei
- * @date 2019/05/27
+ * @date 2019/06/09
  */
 @SpringBootApplication
-public class SentinelApplication {
-
+@EnableFeignClients
+public class ServiceApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(SentinelApplication.class);
+        SpringApplication.run(ServiceApplication.class, args);
 
     }
-
 }

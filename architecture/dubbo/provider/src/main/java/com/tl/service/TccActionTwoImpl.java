@@ -1,14 +1,12 @@
-package com.tl.common.action.impl;
-
-import java.util.List;
+package com.tl.service;
 
 import com.tl.common.action.ResultHolder;
 import com.tl.common.action.TccActionTwo;
 import io.seata.rm.tcc.api.BusinessActionContext;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
-//import io.seata.samples.tcc.springboot.dubbo.action.ResultHolder;
-//import io.seata.samples.tcc.springboot.dubbo.action.TccActionTwo;
+
+import java.util.List;
 
 /**
  * The type Tcc action two.

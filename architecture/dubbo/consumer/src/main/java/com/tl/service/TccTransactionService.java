@@ -1,23 +1,29 @@
-package io.seata.samples.tcc.springboot.dubbo.service;
+package com.tl.service;
+
+import com.tl.common.action.TccActionOne;
+import com.tl.common.action.TccActionTwo;
+import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import io.seata.core.context.RootContext;
-import io.seata.samples.tcc.springboot.dubbo.action.TccActionOne;
-import io.seata.samples.tcc.springboot.dubbo.action.TccActionTwo;
-import io.seata.spring.annotation.GlobalTransactional;
 
 /**
  * The type Tcc transaction service.
  *
  * @author zhangsen
  */
+@Service
 public class TccTransactionService {
 
+    @Reference(url = "dubbo://localhost:20880")
     private TccActionOne tccActionOne;
 
+    @Reference(url = "dubbo://localhost:20880")
     private TccActionTwo tccActionTwo;
 
     /**

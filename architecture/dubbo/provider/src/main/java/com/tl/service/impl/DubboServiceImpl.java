@@ -14,6 +14,6 @@ public class DubboServiceImpl implements DubboService {
 
     @Override
     public void find() {
-
+        System.out.println("test success");
     }
 }
