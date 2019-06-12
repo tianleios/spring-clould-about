@@ -16,8 +16,10 @@ public class TestController {
     UserApi userApi;
 
     @GetMapping("/test")
-    public void test() {
-        System.out.println(userApi.getUserName(1L));
+    public String test() {
+       return userApi.getUserName(1L);
     }
+
+
 
 }

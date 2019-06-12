@@ -1,7 +1,6 @@
 package com.tl.sc.api;
 
 import com.tl.sc.common.api.UserApi;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
