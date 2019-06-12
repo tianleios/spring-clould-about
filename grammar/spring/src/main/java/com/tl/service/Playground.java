@@ -20,4 +20,7 @@ public class Playground implements SmartInitializingSingleton {
     public void afterSingletonsInstantiated() {
         int a = 0;
     }
+
+
+
 }

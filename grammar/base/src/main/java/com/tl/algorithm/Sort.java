@@ -101,11 +101,11 @@ public class Sort {
 
         for (int i = 0; i < arr.length - 1; i ++) {
             for (int j = 0; j < arr.length - 1 - i; j ++) {
-
                 if (arr[j] > arr[j + 1]) {
-                    int c = arr[j + 1];
+                    int temp = arr[j + 1];
                     arr[j + 1] = arr[j];
-                    arr[j] = c;
+                    arr[j] = temp;
+
                 }
             }
         }
@@ -204,9 +204,9 @@ public class Sort {
     public void qs2(int[] arr, int left, int right) {
 
         if (left < right) {
-            int p = qsz(arr, left, right);
-            qs2(arr,left, p);
-            qs2(arr, p + 1, right);
+            int midIndx =  qsz2(arr, left, right);
+            qs2(arr, left , midIndx);
+            qs2(arr, midIndx + 1, right);
         }
 
     }
@@ -214,15 +214,14 @@ public class Sort {
     public int qsz2(int[] arr, int left, int right) {
 
         int temp = arr[left];
-
         while (left < right) {
             if (left < right && arr[right] >= temp) {
-                right --;
+                right--;
             }
 
             arr[left] = arr[right];
 
-            if (left < right && arr[left] < temp) {
+            if (left < right && arr[left] <= temp) {
                 left ++;
             }
 
@@ -231,6 +230,7 @@ public class Sort {
 
         arr[left] = temp;
         return left;
+
     }
 
 }

@@ -1,5 +1,7 @@
 package com.tl.algorithm;
 
+import org.junit.Test;
+
 import java.util.LinkedList;
 
 /**
@@ -51,20 +53,40 @@ public class PrintTree {
     }
 
 
-    public static void print2(Node node) {
+    @Test
+    public void rr() {
 
-        LinkedList<Node> linkedList = new LinkedList<>();
-        linkedList.push(node);
-        while (linkedList.peek() != null) {
-            Node currentNode = linkedList.poll();
-            System.out.println(currentNode.value);
-            if (currentNode.left != null) {
-                linkedList.push(currentNode.left);
-            }
-            if (currentNode.right != null) {
-                linkedList.push(currentNode.right);
-            }
+        Node node1 = new Node();
+        node1.value = 1;
+
+        Node node1l = new Node();
+        node1l.value = 11;
+
+        Node node1r = new Node();
+        node1r.value = 22;
+
+        node1.left = node1l;
+        node1.right = node1r;
+
+
+        reversal(node1);
+
+        int a = 0;
+
+    }
+
+    public static void reversal(Node node) {
+
+        if (null == node) {
+            return;
         }
+
+        reversal(node.left);
+        reversal(node.right);
+
+        Node temp = node.left;
+        node.left = node.right;
+        node.right = temp;
 
     }
 
