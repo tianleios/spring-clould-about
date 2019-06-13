@@ -11,5 +11,9 @@
 
     <artifactId>m1-2</artifactId>
 
+    <modules>
+        <module>../m0</module>
+    </modules>
+
 
 </project>
