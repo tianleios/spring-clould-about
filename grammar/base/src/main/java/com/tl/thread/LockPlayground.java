@@ -28,10 +28,14 @@ public class LockPlayground {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Object obj1 = new Object();
         Object obj2 = new Object();
+
+
+        Thread.sleep(100000);
+
 
 
         new Thread(() -> {
