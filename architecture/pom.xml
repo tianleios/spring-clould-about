@@ -15,6 +15,10 @@
         <module>spring</module>
         <module>current-limiting</module>
         <module>spring-cloud</module>
+        <module>activiti</module>
+        <module>flink</module>
+        <module>mvc-old</module>
+        <module>webapp</module>
     </modules>
 
 

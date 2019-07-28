@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>client</module>
+        <module>client</module>
+        <module>mq-client</module>
     </modules>
 
     <dependencies>

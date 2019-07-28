@@ -17,60 +17,15 @@
         <module>provider</module>
     </modules>
 
-
-
     <properties>
-        <seata.version>0.5.2</seata.version>
+        <dubbo.version>2.7.1</dubbo.version>
     </properties>
 
+
     <dependencies>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-common</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-core</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-rm-datasource</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-tm</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-rm</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-spring</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-dubbo</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-dubbo</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-server</artifactId>
-            <version>${seata.version}</version>
-        </dependency>
+
     </dependencies>
 
 
