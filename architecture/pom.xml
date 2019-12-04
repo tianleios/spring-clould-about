@@ -8,6 +8,7 @@
     <artifactId>architecture</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>rocketmq</module>
         <module>raft</module>
@@ -17,8 +18,10 @@
         <module>spring-cloud</module>
         <module>activiti</module>
         <module>flink</module>
-        <module>mvc-old</module>
         <module>webapp</module>
+        <module>spring-cloud-alibaba</module>
+        <module>cache</module>
+        <module>mall</module>
     </modules>
 
 

@@ -11,10 +11,6 @@
 
     <artifactId>consumer</artifactId>
 
-    <properties>
-        <seata.version>0.5.2</seata.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.tianlei</groupId>
