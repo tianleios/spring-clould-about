@@ -12,9 +12,8 @@
     <artifactId>rocketmq</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>client</module>
-        <module>client</module>
         <module>mq-client</module>
+        <module>mq-boot</module>
     </modules>
 
     <dependencies>
@@ -22,8 +21,13 @@
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>4.5.0</version>
+            <version>4.4.0</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.rocketmq</groupId>-->
+            <!--<artifactId>rocketmq-spring-boot-starter</artifactId>-->
+            <!--<version>4.4.0</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 

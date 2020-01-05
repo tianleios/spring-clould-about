@@ -7,7 +7,7 @@ import org.apache.dubbo.config.annotation.Service;
 /**
  * Created by tianlei on 2019-07-28
  */
-@Service
+@Service(proxy = "jdk")
 public class ProviderService  implements Provider {
     @Override
     public Teacher sayHi(String content) {
