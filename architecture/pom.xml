@@ -22,6 +22,8 @@
         <module>spring-cloud-alibaba</module>
         <module>cache</module>
         <module>mall</module>
+        <module>spring-boot-starter</module>
+        <module>diy-annotation</module>
     </modules>
 
 
