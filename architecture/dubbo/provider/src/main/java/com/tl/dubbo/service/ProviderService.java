@@ -8,9 +8,9 @@ import org.apache.dubbo.config.annotation.Service;
  * Created by tianlei on 2019-07-28
  */
 @Service(proxy = "jdk")
-public class ProviderService  implements Provider {
+public class ProviderService implements Provider {
     @Override
-    public Teacher sayHi(String content) {
+    public Teacher sayHi(String content, int a) {
         Teacher teacher = new Teacher();
         teacher.setName(content);
         teacher.setAge(18);
@@ -20,5 +20,10 @@ public class ProviderService  implements Provider {
 //            throw new RuntimeException("tl error");
 //        }
 //        return "Hi!" + content;
+    }
+
+    @Override
+    public String test() {
+        return "test";
     }
 }

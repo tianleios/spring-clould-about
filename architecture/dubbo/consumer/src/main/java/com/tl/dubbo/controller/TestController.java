@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class TestController {
 
-    @Reference(url = "dubbo://localhost:20880", timeout = 30000000)
+//        @Reference(url = "dubbo://localhost:20880", timeout = 30000000)
+    @Reference(timeout = 300000)
     private Provider provider;
 
     @GetMapping("/test/{content}")
     public String test(@PathVariable("content") String content) {
-        Teacher teacher = provider.sayHi(content);
+        Teacher teacher = provider.sayHi(content, 1);
         System.out.println(teacher);
 
         return teacher.getName();

@@ -1,5 +1,7 @@
 package com.tl.dubbo.service;
 
+import org.apache.dubbo.config.RegistryConfig;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,5 +17,12 @@ public class Config {
 //        providerConfig.setFilter("exceptionFilter");
 //        return providerConfig;
 //    }
+
+    @Bean
+    public RegistryConfig registryConfig() {
+        RegistryConfig registryConfig = new RegistryConfig();
+        registryConfig.setAddress("zookeeper://localhost:2181");
+        return registryConfig;
+    }
 
 }

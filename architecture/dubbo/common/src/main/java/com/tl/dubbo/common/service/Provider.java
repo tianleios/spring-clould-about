@@ -7,6 +7,9 @@ import com.tl.dubbo.common.model.Teacher;
  */
 public interface Provider {
 
-    Teacher sayHi(String content);
+    Teacher sayHi(String content, int a);
+
+    String test();
+
 
 }
